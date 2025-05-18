@@ -1,0 +1,1094 @@
+@use "./reset";
+
+// Layout
+@use "./layout/grid";
+@use "./layout/header";
+@use "./layout/footer";
+@use "/scss/mixins";
+
+// Pages
+@use "./pages/home";
+@use "./pages/about";
+
+// Components
+@use "./components/buttons";
+@use "./components/forms";
+@use "./components/course-item";
+
+// Common
+
+//  SCSS cho font-family
+$font-heading: "Roboto Slab", sans-serif;
+$font-body: "Manrope", sans-serif;
+
+// Color palette
+$color-white: #ffffff;
+$color-orange: #fd6038;
+$color-yellow: #fed464;
+$color-green: #017848;
+$color-dark: #0e1412;
+$color-gray: #586863;
+$color-beige: #f8ebc9;
+
+h1,
+h2,
+h3,
+.sub-heading {
+  font-family: $font-heading;
+}
+
+h4,
+h5,
+h6,
+p {
+  font-family: $font-body;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.6rem;
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+}
+
+// Home
+.wrapper-home {
+  background-color: $color-beige;
+  height: 859px;
+}
+
+.hero-home {
+  margin-top: 80px;
+  line-height: 1.4;
+  .col-6 {
+    padding: 0;
+  }
+
+  .hero-left {
+    height: 458px;
+    display: flex;
+    flex-direction: column;
+  }
+  .btn-home {
+    margin-top: auto;
+  }
+
+  h1 {
+    font-size: 6rem;
+    line-height: 7rem;
+    font-weight: 800;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .sub-heading {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 30px;
+  }
+  p {
+    line-height: 3rem;
+    max-width: 47rem;
+    max-height: 9rem;
+    font-size: 1.8rem;
+  }
+}
+.hero-right {
+  width: 470px;
+  height: 476px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #017848;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: -15%;
+    width: 100%;
+    height: 100%;
+    background: url(./img/brush.png) no-repeat;
+    background-size: 164px auto;
+    background-position: top right;
+    z-index: 100;
+  }
+
+  img {
+    position: absolute;
+    width: 330px;
+    height: 476px;
+    z-index: 2;
+    object-fit: cover;
+  }
+}
+
+.item-right {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 170px;
+  height: 422px;
+  background-color: #fed464;
+  z-index: 1;
+}
+
+// About
+.wrapper-about {
+  background-color: $color-dark;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.about-section {
+  .row {
+    align-items: center;
+  }
+  .sub-heading {
+    font-family: $font-heading;
+    color: $color-orange;
+    font-size: 1.8rem;
+  }
+  .about-img {
+    width: 627px;
+    height: 570px;
+    img {
+      width: 570px;
+      height: 570px;
+      object-fit: cover;
+    }
+  }
+  .about-right {
+    width: 100%;
+    max-width: 470px;
+    max-height: 442px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    .container {
+      margin-left: 0;
+      height: 68px;
+
+      .row {
+        width: 355px;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 4.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+    color: $color-white;
+  }
+  .about-info {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  h3 {
+    color: $color-white;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 34px;
+  }
+  p {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    color: $color-gray;
+  }
+}
+
+// Section :
+
+// - Practice Areas
+.practice-heading {
+  margin-top: 150px;
+  text-align: center;
+  .practice-tag {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: $color-gray;
+  }
+  h2 {
+    margin-top: 6px;
+    font-size: 4.2rem;
+    font-weight: 700;
+  }
+  p {
+    line-height: 30px;
+    color: $color-gray;
+    width: 470px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 18px auto;
+  }
+}
+.practice-container {
+  margin-top: 70px;
+
+  .col-12 {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .practice-item {
+    width: 370px;
+    height: 370px;
+    position: relative;
+
+    &-injury {
+      background: url(./img/practice-item-1.png) no-repeat center/cover;
+    }
+
+    &-employment {
+      background: url(./img/practice-item-2.png) no-repeat center/cover;
+    }
+    &-immigration {
+      background: url(./img/practice-item-3.png) no-repeat center/cover;
+    }
+    &-family {
+      background: url(./img/practice-item-4.png) no-repeat center/cover;
+    }
+    &-divorce {
+      background: url(./img/practice-item-5.png) no-repeat center/cover;
+    }
+    &-property {
+      background: url(./img/practice-item-6.png) no-repeat center/cover;
+    }
+
+    .btn-primary {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      width: 330px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .btn-sub {
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      width: 330px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+  }
+}
+// Features 1
+.features-section {
+  padding-top: 150px;
+  .row {
+    align-items: center;
+  }
+  .sub-heading {
+    font-family: $font-heading;
+    color: $color-gray;
+    font-size: 1.8rem;
+  }
+  .features-img {
+    position: relative;
+    width: 570px;
+    height: 570px;
+
+    img {
+      width: 570px;
+      height: 570px;
+      object-fit: cover;
+    }
+
+    &-1::before {
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 220px;
+      background: $color-orange;
+      z-index: 11;
+      top: 0;
+      right: 0;
+    }
+  }
+  .features-right {
+    width: 100%;
+    max-width: 470px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    li {
+      position: relative;
+      padding-left: 2rem;
+      margin-top: 12px;
+      font-family: $font-body;
+      font-size: 1.8rem;
+      font-weight: 500;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: $color-dark;
+        font-size: 2rem;
+      }
+    }
+
+    .container {
+      margin-left: 0;
+      height: 68px;
+
+      .row {
+        width: 355px;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 4.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+    color: $color-dark;
+  }
+  .features-info {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  h3 {
+    color: $color-white;
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 34px;
+  }
+  p {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    color: $color-gray;
+  }
+}
+// Features 2
+.features-section-2 {
+  margin-bottom: 150px;
+  .row {
+    flex-direction: row-reverse;
+  }
+  .features-img-2 {
+    &::before {
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 220px;
+      background: $color-green;
+      z-index: 11;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .features-right {
+    height: 346px;
+    .btn-features {
+      margin-top: auto;
+    }
+  }
+}
+
+// Attorney
+.wrapper-lawyer {
+  background-color: $color-dark;
+}
+.lawyer-heading {
+  margin-top: 150px;
+  text-align: center;
+  .lawyer-tag {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: $color-orange;
+  }
+  h2 {
+    margin-top: 6px;
+    font-size: 4.2rem;
+    font-weight: 700;
+    color: $color-white;
+  }
+  p {
+    color: $color-gray;
+    width: 470px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 18px auto;
+  }
+}
+.lawyer-container {
+  margin-top: 70px;
+
+  .col-12 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 115px;
+  }
+
+  .lawyer-item {
+    width: 370px;
+    height: 448px;
+    position: relative;
+    img {
+      height: 370px;
+      width: 370px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .lawyer-info {
+      margin-top: 18px;
+      text-align: center;
+      h4 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        line-height: 32px;
+        color: $color-white;
+      }
+      h5 {
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 28px;
+        color: $color-gray;
+      }
+    }
+
+    .btn-primary {
+      position: absolute;
+      width: 171px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      z-index: 1000;
+      bottom: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.8rem 1.6rem;
+    }
+    .btn-primary-hide {
+      display: none;
+    }
+  }
+}
+
+// awards
+.wrapper-awards {
+  background-color: $color-beige;
+  .awards-heading {
+    margin-top: 100px;
+    margin-bottom: 70px;
+    text-align: center;
+    h2 {
+      font-size: 4.2rem;
+      font-weight: 700;
+    }
+    .sub-heading {
+      font-size: 1.8rem;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+
+  .awards-item {
+    width: 270px;
+    height: 270px;
+    background-color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    margin-bottom: 100px;
+    img {
+      max-width: 50%;
+      max-height: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+// testimonial
+.wrapper-testimonial {
+  h2 {
+    font-size: 4.2rem;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+
+  .sub-heading {
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    color: $color-gray;
+  }
+}
+.wrapper-testimonial {
+  margin-top: 150px;
+  .btn-testimonial {
+    gap: 10px;
+    height: 108px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .btn-sub {
+      color: $color-white;
+      background-color: $color-dark;
+    }
+  }
+}
+
+.dot-feedback {
+  margin-top: 55px;
+  text-align: center;
+}
+.testimorial-feedback {
+  margin-top: 70px;
+
+  &-item {
+    width: 370px;
+    height: 574px;
+    border: 1px solid #ddd;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #0001;
+    text-align: left;
+
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 30px;
+      color: $color-gray;
+    }
+
+    .quote-icon {
+      margin-top: 30px;
+    }
+
+    .author-info {
+      margin-top: 12px;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 64px;
+      width: 64px;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// FAQ
+.wrapper-faq {
+  background-color: $color-white;
+  margin-top: 150px;
+}
+
+.faq-section {
+  .faq-heading {
+    text-align: center;
+
+    .sub-heading {
+      color: $color-gray;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 4.2rem;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+  }
+
+  .faq-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 18px;
+
+    .faq-btn {
+      font-family: Manrope;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: $color-dark;
+      cursor: pointer;
+      position: relative;
+
+      &-active {
+        color: $color-orange;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .faq-accordion {
+    position: relative;
+    width: 770px;
+    margin: 0 auto;
+    background-color: $color-white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &-active {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+      max-height: 260px;
+      padding: 24px;
+      margin-top: 70px;
+    }
+
+    &-sub {
+      margin-top: 30px;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      h3 {
+        font-size: 2.2rem;
+        font-weight: 700;
+      }
+
+      .faq-arrow {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .faq-answer {
+      margin-top: 18px;
+      font-size: 1.8rem;
+      line-height: 30px;
+      color: $color-gray;
+    }
+  }
+}
+
+.faq-line {
+  height: 1px;
+  width: 770px;
+  color: #dbe1e3;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-top: 1px solid;
+}
+
+// Blog
+.wrapper-blog-item {
+  margin-top: 70px;
+}
+.blog-section {
+  margin-top: 150px;
+  .sub-heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  h1 {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 70px;
+  }
+
+  h2 {
+    font-size: 4.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 52px;
+  }
+
+  p {
+    color: $color-gray;
+    width: 470px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 16px;
+  }
+}
+// blog item
+.blog-item {
+  .img-blog {
+    width: 370px;
+    height: 370px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .blog-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    h4 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: $color-dark;
+    }
+    p {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-top: 0;
+    }
+  }
+
+  .author-avatar {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .blog-link {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: $font-body;
+    margin-top: 12px;
+    line-height: 30px;
+
+    &-active {
+      color: $color-orange;
+    }
+
+    &-sub {
+      color: $color-dark;
+    }
+  }
+}
+
+// CTA - SECTION
+.wrapper-cta {
+  background-color: $color-green;
+  .cta-section {
+    margin-top: 100px;
+  }
+  .heading-cta {
+    margin-top: 150px;
+    text-align: center;
+    color: $color-white;
+  }
+  h2 {
+    font-size: 4.2rem;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .sub-heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+  p {
+    width: 470px;
+    margin: 18px auto;
+    line-height: 30px;
+  }
+  .btn-primary {
+    margin-top: 30px;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 115px;
+  }
+}
+
+// ABOUT - SECTION
+.wrapper-about-section {
+  background-color: $color-beige;
+}
+.about-section-content {
+  margin-top: 92px;
+  text-align: center;
+  height: 260px;
+  width: 670px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  h1 {
+    margin-top: 12px;
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 70px;
+  }
+  .sub-heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  p {
+    margin-top: 12px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}
+
+.wrapper-story-section {
+  background-color: $color-white;
+  .story-container {
+    margin-top: 150px;
+  }
+  .story-img {
+    position: relative;
+    transform: scalex(-1);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: url(./img/brush-story.png) no-repeat;
+      background-size: 164px auto;
+      background-position: center;
+      z-index: 10;
+      filter: brightness(0) saturate(100%) invert(93%) sepia(34%)
+        saturate(4804%) hue-rotate(311deg) brightness(106%) contrast(108%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 220px;
+      background-color: #fed464;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+    }
+    img {
+      width: 570px;
+      height: 570px;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
+
+  .sub-heading {
+    color: $color-gray;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  h2 {
+    font-size: 4.2rem;
+    font-weight: 700;
+    line-height: 52px;
+  }
+  p {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 30px;
+    color: $color-gray;
+    margin-top: 16px;
+  }
+}
+
+// gallery section
+.img-gallery {
+  img {
+    margin-top: 70px;
+    width: 1170px;
+    height: 570px;
+    object-fit: cover;
+  }
+}
+
+.data-gallery {
+  margin-top: 70px;
+  background: $color-yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 100px;
+  height: 210px;
+  h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 70px;
+  }
+
+  .sub-heading {
+    font-family: $font-body;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+}
+
+// video section
+.video-wrapper {
+  img {
+    margin-top: 70px;
+    width: 1170px;
+    height: 570px;
+    object-fit: cover;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+}
+
+.video-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-left: 20px solid black;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+// SECTION - PRACTICE
+.section-wrapper-practice {
+  background-color: $color-beige;
+}
+
+// Blog - Big - Section
+
+.blog-item-container {
+  .blog-btn {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+  }
+  margin-top: 70px;
+  margin-bottom: 165px;
+  a {
+    text-decoration: none;
+  }
+  img {
+    height: 202px;
+    width: 268px;
+    object-fit: cover;
+  }
+  .blog-big-content {
+    font-family: $font-body;
+    &-main {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 30px;
+      width: 244px;
+      color: $color-dark;
+    }
+    &-sub {
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 28px;
+      color: $color-gray;
+    }
+  }
+}
+
+// Contact Section
+.wrapper-contact {
+  h2 {
+    margin-top: 12px;
+  }
+  p {
+    width: 100%;
+    font-size: 1.6rem;
+  }
+}
+
+.contact-form {
+  margin-top: 70px;
+  .submit-btn {
+    background-color: #0e1412;
+    color: white;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+    margin-bottom: 150px;
+    margin-top: 20px;
+  }
+}
+
+.contact-form .submit-btn:hover {
+  opacity: 0.85;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attorneys</title>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <div class="wrapper-contact">
+      <%- include("./partials/header.ejs") %>
+      <section class="blog-section">
+        <!-- Contact Heading -->
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <span>Contact us</span>
+            </div>
+            <div class="col-7">
+              <h2>We Are Always Ready To Hear For You.</h2>
+            </div>
+            <div class="col-6">
+              <p>
+                The right move at the right time saves your investment. live the
+                dream of expanding your business.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- End Contact Heading -->
+
+        <form class="contact-form">
+          <div class="container">
+            <div class="row g-3">
+              <div class="col-6">
+                <input type="text" placeholder="Enter your name" />
+              </div>
+              <div class="col-6">
+                <input type="text" placeholder="Comapy (optioanl)" />
+              </div>
+              <div class="col-6">
+                <input type="email" placeholder="Your email" />
+              </div>
+              <div class="col-6">
+                <input type="tel" placeholder="Phone number" />
+              </div>
+              <div class="col-12">
+                <textarea placeholder="Tell us about yourself"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="submit-btn">Contact us</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

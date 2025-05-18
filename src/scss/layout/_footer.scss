@@ -1,0 +1,49 @@
+.footer {
+  background-color: #0e1412;
+  color: #fff;
+  padding: 60px 0 30px;
+
+  h4 {
+    color: var(--White, #fff);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 150% */
+  }
+
+  li,
+  p {
+    color: #beccc7;
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    margin-top: 16px;
+  }
+  .logo-header {
+    margin-top: 28px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .social-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .copy-footer {
+    font-size: 1.4rem;
+  }
+}
+
+.line-footer {
+  width: 1170px;
+  height: 1px;
+  flex-shrink: 0;
+  color: #313d39;
+  margin: 0 auto;
+  margin-top: 55px;
+  border-top: 1px solid;
+}

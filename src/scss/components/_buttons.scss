@@ -1,0 +1,46 @@
+//  SCSS cho font-family
+$font-heading: "Roboto Slab", sans-serif;
+$font-body: "Manrope", sans-serif;
+
+// Color palette
+$color-white: #ffffff;
+$color-orange: #fd6038;
+$color-yellow: #fed464;
+$color-green: #017848;
+$color-dark: #0e1412;
+$color-gray: #586863;
+$color-beige: #f8ebc9;
+
+.btn-primary {
+  background-color: $color-orange;
+  color: $color-white;
+  font-family: $font-body;
+  font-size: 1.6rem;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-sub {
+  background-color: $color-white;
+  color: $color-dark;
+  font-family: $font-body;
+  font-size: 1.6rem;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}

@@ -1,0 +1,116 @@
+@use "/scss/mixins";
+
+.wrapper-header {
+  background: #f8ebc9;
+  height: 127px;
+}
+.drawer-open {
+  display: none;
+}
+#drawer:checked ~ .nav-header {
+  display: inline-block;
+}
+
+header {
+  margin-top: 30px;
+  max-height: 67px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+  }
+}
+
+.logo-header {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 67px;
+}
+.logo-text {
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Slab", sans-serif;
+}
+.logo-main {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.logo-sub {
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.logo-icon {
+  font-size: 2.4rem;
+}
+.nav-header {
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  flex: 2;
+  justify-content: space-evenly;
+  position: relative;
+}
+.nav-list {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+
+  &-active {
+    color: #fd6038;
+  }
+}
+.has-dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  display: none;
+  min-width: 180px;
+  z-index: 99;
+
+  .fa-angle-right {
+    position: absolute;
+    top: 0;
+    right: -1rem;
+  }
+}
+.has-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #444;
+  position: relative;
+}
+
+.dropdown-menu li.active a {
+  color: #fd6038;
+  font-weight: bold;
+}
+
+.header-phone {
+  font-family: "Manrope", sans-serif;
+  .phone-number {
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
+}
